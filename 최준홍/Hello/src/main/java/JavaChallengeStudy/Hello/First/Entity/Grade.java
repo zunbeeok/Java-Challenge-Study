@@ -10,14 +10,14 @@ import javax.persistence.Entity;
 //import javax.persistence.Table;
 //import javax.persistence.UniqueConstraint;
 
-@Entity
-@Getter
-@NoArgsConstructor(access = AccessLevel.PROTECTED)
-@Table(
-        name = "grade"
-)
-//    @ToString(exclude = {"comments", "tagBridges"})
-@ToString
+//@Entity
+//@Getter
+//@NoArgsConstructor(access = AccessLevel.PROTECTED)
+//@Table(
+//        name = "grade"
+//)
+////    @ToString(exclude = {"comments", "tagBridges"})
+//@ToString
 public class Grade {
     @Id
     private String Name;

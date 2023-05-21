@@ -3,6 +3,7 @@ package JavaChallengeStudy.Hello.First;
 import JavaChallengeStudy.Hello.First.Entity.Member;
 import JavaChallengeStudy.Hello.First.dto.GradeDto;
 import JavaChallengeStudy.Hello.First.dto.MemberDto;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -11,10 +12,12 @@ import java.util.stream.Collectors;
 
 //@Autowired
 //@ToString
-@Component
+//@Component
+//@RequiredArgsConstructor()
+//private final, RequiredArgsConstructor 어노테이션 사용. 생성자 주입 방식.
 public class FirstServiceImpl implements FirstService {
 
-    private FirstRepository firstRepository;
+    private final FirstRepository firstRepository;
 
     @Autowired
     public FirstServiceImpl( FirstRepository firstRepository){
@@ -35,8 +38,8 @@ public class FirstServiceImpl implements FirstService {
     @Override
     public MemberDto addMember(MemberDto memberDto) {
 
-        Member memberEntity = memberDto.
-        firstRepository.save(memberDto);
+//        Member memberEntity = memberDto.
+//        firstRepository.save(memberDto);
         return null;
     }
 //
@@ -65,6 +68,7 @@ public class FirstServiceImpl implements FirstService {
     @Override
     public List<Integer> lottoGenerator(int maxCount) {
         if(maxCount <6) return null; // 최소 자릿수 유효성검사. 더 좋방법이 있나? dto에서 하는게 더 좋나?
+        //exception   service부분에서 exception handler는 service에서 작성하는게
         return new Random().ints(1,maxCount+1)
                 .distinct()  //중복제거 될때까지 반복.
                 .limit(6) //리미티드 숫자만큼 안따라오면 다시 실행한다.

@@ -9,14 +9,14 @@ import javax.persistence.*;
 //import javax.persistence.Entity;
 //import javax.persistence.Table;
 
-@Entity
+//@Entity
 //@Getter
 ////    @NoArgsConstructor(access = AccessLevel.PROTECTED)
-@Table(
-        name = "member"
-)
-//    @ToString(exclude = {"comments", "tagBridges"})
-@ToString
+//@Table(
+//        name = "member"
+//)
+////    @ToString(exclude = {"comments", "tagBridges"})
+//@ToString
 public class Member {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
