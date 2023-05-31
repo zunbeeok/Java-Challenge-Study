@@ -1,7 +1,5 @@
 package JavaChallengeStudy.Hello.board.entity;
 
-import JavaChallengeStudy.Hello.board.entity.Boards;
-import JavaChallengeStudy.Hello.board.entity.Tags;
 import lombok.*;
 
 import javax.persistence.*;
@@ -10,8 +8,8 @@ import javax.persistence.*;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Entity
 @Table(name = "tag_bridges")
-@ToString(exclude = {"boards", "tags"})
-public class TagBridges{
+@ToString(exclude = {"board", "tags"})
+public class TagBridge {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,16 +17,16 @@ public class TagBridges{
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "board_id", nullable = false)
-    private Boards boards;
+    private Board board;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "tag_id", nullable = false)
     private Tags tags;
 
     @Builder
-    public TagBridges(Long id, Boards boards, Tags tags) {
+    public TagBridge(Long id, Board board, Tags tags) {
         this.id = id;
-        this.boards = boards;
+        this.board = board;
         this.tags = tags;
     }
 }

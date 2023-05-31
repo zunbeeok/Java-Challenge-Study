@@ -8,7 +8,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "comments")
-public class Comments {
+public class Comment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -19,13 +19,13 @@ public class Comments {
 
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name =  "boardId", nullable = false)
-    private Boards boardId;
+    private Board boardId;
 
     @Column
     private String comment;
 
     @Builder
-    public Comments(Long id, Users userId, Boards boardId, String comment){
+    public Comment(Long id, Users userId, Board boardId, String comment){
         this.id = id;
         this.userId = userId;
         this.boardId = boardId;
